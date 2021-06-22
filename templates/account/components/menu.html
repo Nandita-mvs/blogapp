@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href=#>WebsiteGen</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            {% if user.is_authenticated %}
+                <li>
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'account_logout' %}">Sign Out</a>
+                </li>
+                <ul class="nav justify-content-end">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Portfolio</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">View Details</a>
+                </li>
+                </ul>
+            {% else %}
+            
+                <li><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'account_login' %}">Sign In</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'account_signup' %}">Sign Up</a></li>
+            {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
